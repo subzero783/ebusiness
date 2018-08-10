@@ -16,5 +16,7 @@ app.set('views', 'app/views');
 app.use(express.static('app/public'));
 app.use(require('./routes/index'));
 app.use(require('./routes/about'));
+app.use(require('./routes/portfolio'));
+app.use(require('./routes/contact'));
 
 reload(app);
