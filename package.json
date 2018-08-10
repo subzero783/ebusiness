@@ -1,0 +1,23 @@
+{
+  "name": "ebusiness",
+  "version": "1.0.0",
+  "description": "In the Business of Helping Your Start Your Business",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+		"start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subzero783/ebusiness.git"
+  },
+  "author": "Gustavo Amezcua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subzero783/ebusiness/issues"
+  },
+  "homepage": "https://github.com/subzero783/ebusiness#readme"
+}
