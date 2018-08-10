@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
           rule = rule.substr(0, pos);
         } else {
           rule = rule.substr(pos + 1, rule.length);
-        }
+        } 
 
         switch (rule) {
           case 'required':
