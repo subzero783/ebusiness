@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/subzero783/ebusiness#readme",
   "dependencies": {
+    "emailjs": "^2.2.0",
     "express": "^4.16.3",
     "reload": "^2.3.1"
   },
