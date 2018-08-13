@@ -3,6 +3,7 @@ jQuery(document).ready(function($) {
 
   //Contact
   $('form.contactForm').submit(function() {
+		e.preventDefault();
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -94,9 +95,10 @@ jQuery(document).ready(function($) {
       type: "POST",
       url: "/contact",
       data: str,
-			dataType: "json",
+			dataType: "json", 
+			contentType: "application/json",
       success: function(msg) {
-				console.log(JSON.stringify(msg));
+				console.log(msg);
         if(msg == 'OK') {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");

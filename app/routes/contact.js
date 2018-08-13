@@ -46,9 +46,9 @@ router.post('/contact', function(req, res){
 		console.log(`Message %s sent %s`, info.messageId, info.response);
 		res.render('contact', {
 			pageTitle: 'Contact',
-			pageID: 'contact'
+			pageID: 'contact', 
+			emailSent: 'sent'
 		});
-		res.end({"success": "OK", "status" : "200"})
 	});
 });
 
