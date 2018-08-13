@@ -1,7 +1,7 @@
 {
   "name": "ebusiness",
   "version": "1.0.0",
-  "description": "In the Business of Helping Your Start Your Business",
+  "description": "In the Business of Helping You Start Your Business",
   "main": "app.js",
   "directories": {
     "lib": "lib"
