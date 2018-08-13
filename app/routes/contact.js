@@ -25,7 +25,7 @@ router.post('/contact', function(req, res){
 	var transporter = nodeMailer.createTransport({
 		host: "smtp.gmail.com",
 		port: 465,
-		secure: true, 
+		secure: true,  
 		auth: {
 			user: process.env.GOOGLE_EMAIL, 
 			pass: process.env.GOOGLE_PASSWORD
