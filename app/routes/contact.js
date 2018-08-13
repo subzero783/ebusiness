@@ -35,7 +35,7 @@ router.post('/contact', function(req, res){
 	var mailOptions = {
 		from:    '"'+ name +'"<'+email+'>', 
 		to:      "Gustavo Amezcua <gusta9753@gmail.com>",
-		cc:      "a4882786@gmail.com",
+		cc:      "",
 		html:    "From: "+ email + "<br/>" + message, 
 		subject: subject
 	};
