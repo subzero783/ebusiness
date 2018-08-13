@@ -8,7 +8,9 @@
   },
   "scripts": {
     "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "encrypt": "encrypt config.json config.json.cast5",
+    "decrypt": "decrypt config.json.cast5 config.json"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   "homepage": "https://github.com/subzero783/ebusiness#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "config-leaf": "^0.3.0",
     "express": "^4.16.3",
     "nodemailer": "^4.6.7",
     "reload": "^2.3.1"

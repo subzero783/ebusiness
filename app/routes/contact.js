@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var nodeMailer = require('nodemailer');
+var config = require('../../config.json');
 
 router.use(bodyParser.urlencoded({extended : false}));
 router.use(bodyParser.json());
@@ -26,8 +27,8 @@ router.post('/contact', function(req, res){
 		port: 465,
 		secure: true, 
 		auth: {
-			user: "", 
-			pass: ""
+			user: config.email.user, 
+			pass: config.email.pass
 		}
 	});
 	
