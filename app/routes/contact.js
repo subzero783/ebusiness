@@ -1,15 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var email = require('emailjs');
+var bodyParser = require('body-parser');
+var nodeMailer = require('nodemailer');
 
-//Make a secure file for sending email
-var server = email.server.connect({
-	user: "ADD USERNAME",
-	password: "ADD PASSWORD",
-	host: "smtp.gmail.com",
-	port: 465,
-	ssl: true
-});
+router.use(bodyParser.urlencoded({extended : false}));
+router.use(bodyParser.json());
 
 router.get('/contact', function(req, res) {
   res.render('contact', {
@@ -19,12 +14,41 @@ router.get('/contact', function(req, res) {
 
 });
 
-server.send({
-   text:    "i hope this works", 
-   from:    "you <gusta9753@gmail.com>", 
-   to:      "someone <gusta9753@gmail.com>",
-   cc:      "",
-   subject: "testing emailjs"
-}, function(err, message) { console.log(err || message); });
+router.post('/contact', function(req, res){
+	var message = req.body.message;
+	var name = req.body.name;
+	var subject = req.body.subject;
+	var email = req.body.email;
+	
+	var transporter = nodeMailer.createTransport({
+		host: "smtp.gmail.com",
+		port: 465,
+		secure: true, 
+		auth: {
+			user: "", 
+			pass: ""
+		}
+	});
+	
+	var mailOptions = {
+		to:      "Gustavo Amezcua <gusta9753@gmail.com>",
+		from:    `${name} <${email}>`, 
+		cc:      "",
+		html:    email + "<br/>" + message, 
+		subject: subject
+	};
+	
+	transporter.sendMail(mailOptions, function(error, info){
+		if(error){
+			return console.log(error);
+		}
+		console.log(`Message %s sent %s`, info.messageId, info.response);
+		res.render('contact', {
+			pageTitle: 'Contact',
+			pageID: 'contact'
+		});
+	});
+});
+
 
 module.exports = router;

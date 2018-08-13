@@ -21,8 +21,9 @@
   },
   "homepage": "https://github.com/subzero783/ebusiness#readme",
   "dependencies": {
-    "emailjs": "^2.2.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "nodemailer": "^4.6.7",
     "reload": "^2.3.1"
   },
   "devDependencies": {
