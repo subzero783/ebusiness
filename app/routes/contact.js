@@ -44,11 +44,12 @@ router.post('/contact', function(req, res){
 			return console.log(error);
 		}
 		console.log(`Message %s sent %s`, info.messageId, info.response);
-		res.render('contact', {
-			pageTitle: 'Contact',
-			pageID: 'contact', 
-			emailSent: 'sent'
-		});
+		// res.render('contact', {
+			// pageTitle: 'Contact',
+			// pageID: 'contact', 
+			// emailSent: 'true'
+		// });
+		res.json({ sent: 'sent' });
 	});
 });
 

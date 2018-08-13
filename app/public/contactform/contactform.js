@@ -3,7 +3,6 @@ jQuery(document).ready(function($) {
 
   //Contact
   $('form.contactForm').submit(function() {
-		e.preventDefault();
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -96,10 +95,9 @@ jQuery(document).ready(function($) {
       url: "/contact",
       data: str,
 			dataType: "json", 
-			contentType: "application/json",
-      success: function(msg) {
-				console.log(msg);
-        if(msg == 'OK') {
+			success: function(data){
+				console.log(data.sent);
+				if (data.sent == 'sent') {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
           $('.contactForm').find("input, textarea").val("");
@@ -108,8 +106,7 @@ jQuery(document).ready(function($) {
           $("#errormessage").addClass("show");
           $('#errormessage').html(msg);
         }
-
-      }
+			}
     }); 
 		
     return false;
