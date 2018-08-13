@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var nodeMailer = require('nodemailer');
-var config = require('../../config.json.cast5'); 
+//var config = require('../../config.json'); 
 
 router.use(bodyParser.urlencoded({extended : false}));
 router.use(bodyParser.json());
@@ -27,8 +27,8 @@ router.post('/contact', function(req, res){
 		port: 465,
 		secure: true, 
 		auth: {
-			user: config.email.user, 
-			pass: config.email.pass
+			user: process.env.GOOGLE_EMAIL, 
+			pass: process.env.GOOGLE_PASSWORD
 		}
 	});
 	
