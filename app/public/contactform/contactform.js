@@ -92,11 +92,12 @@ jQuery(document).ready(function($) {
     else var str = $(this).serialize();
     $.ajax({
       type: "POST",
-      url: "contactform/contactform.php",
+      url: "/contact",
       data: str,
+			dataType: "json",
       success: function(msg) {
-        // alert(msg);
-        if (msg == 'OK') {
+        alert(msg);
+        if(msg == 'OK') {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
           $('.contactForm').find("input, textarea").val("");
@@ -107,7 +108,18 @@ jQuery(document).ready(function($) {
         }
 
       }
-    });
+    }); 
+		
+		/* $.post('/contact',{
+			name: $("#name").val(),
+			subject: $("#subject").val(),
+			message: $("textarea[name^='message']").val(),
+			email: $("#email").val()
+		}, function(data, status){
+			alert(data);
+			alert(status);
+		}); */
+		
     return false;
   });
 

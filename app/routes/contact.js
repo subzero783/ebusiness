@@ -15,6 +15,8 @@ router.get('/contact', function(req, res) {
 });
 
 router.post('/contact', function(req, res){
+
+	
 	var message = req.body.message;
 	var name = req.body.name;
 	var subject = req.body.subject;
