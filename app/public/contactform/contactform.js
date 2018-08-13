@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
       data: str,
 			dataType: "json",
       success: function(msg) {
-        alert(msg);
+				console.log(JSON.stringify(msg));
         if(msg == 'OK') {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
@@ -109,16 +109,6 @@ jQuery(document).ready(function($) {
 
       }
     }); 
-		
-		/* $.post('/contact',{
-			name: $("#name").val(),
-			subject: $("#subject").val(),
-			message: $("textarea[name^='message']").val(),
-			email: $("#email").val()
-		}, function(data, status){
-			alert(data);
-			alert(status);
-		}); */
 		
     return false;
   });
