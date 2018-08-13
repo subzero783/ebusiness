@@ -33,9 +33,9 @@ router.post('/contact', function(req, res){
 	
 	var mailOptions = {
 		to:      "Gustavo Amezcua <gusta9753@gmail.com>",
-		from:    `${name} <${email}>`, 
+		from:    email, 
 		cc:      "",
-		html:    email + "<br/>" + message, 
+		html:    "From: "+ email + "<br/>" + message, 
 		subject: subject
 	};
 	
@@ -44,11 +44,6 @@ router.post('/contact', function(req, res){
 			return console.log(error);
 		}
 		console.log(`Message %s sent %s`, info.messageId, info.response);
-		// res.render('contact', {
-			// pageTitle: 'Contact',
-			// pageID: 'contact', 
-			// emailSent: 'true'
-		// });
 		res.json({ sent: 'sent' });
 	});
 });
